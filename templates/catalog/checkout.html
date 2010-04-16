@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load catalog_tools %}
+{% load thumbnail %}
+{% block content %}
+<h1>Bekræft din bestilling</h1>
+<table style="width: 100%;" class="checkout">
+	<tr class="header">
+		<td></td><td class="product">Produkt</td><td class="amount">Antal</td><td class="price">Enhedspris</td><td class="total">I alt</td>
+	</tr>
+{% for itm in basket %}
+	<tr>
+		<td rowspan="{{ itm.fees|length|add:2 }}">{% if itm.item.icon %}<img src="{% thumbnail itm.item.icon 50x50 upscale %}" />{% endif %}</td>
+		<td class="item">{% if itm.item %}{{ itm.item }}{% else %}{{ itm.name }}{% endif %}</td><td>{{ itm.amount }}</td><td>{% if itm.item %}{{ itm.item.price|currency }}{% else %}{{ itm.price|currency }}{% endif %}</td><td>{{ itm.price|currency }}</td><td rowspan="{{ itm.fees.count|length|add:2 }}">{% if itm.item %}<a href="?add_item={{ itm.item.id }}" title="Tilføj en {{ itm.item }}" class="add"></a><a href="?remove_item={{ itm.item.id }}" title="Fjern en {{ itm.item }}" class="remove"></a>{% endif %}</td>
+	</tr>
+	{% for fee in itm.fees %}
+		<tr class="fee"><td>+ {{ fee.fee }}</td><td>{{ itm.amount }}</td><td>{{ fee.fee.price|currency }}</td><td>{{ fee.price|currency }}</td></tr>
+	{% endfor %}
+	<tr class="fee">
+		<td colspan="1">{% if itm.avoid %}
+			 - køb for {{ itm.avoid_fee|currency }} mere og du sparer {{ itm.name|lower }}{% endif %}
+			{% if itm.avoid_item %}
+			<br />Hvad med en <a href="?add_item={{ itm.avoid_item.id }}">{{ itm.avoid_item }}</a>?
+			{% else %}
+			{% if itm.item.description %}
+			{{ itm.item.description|truncatewords:20 }}
+			{% endif %}
+			{% endif %}
+		</td>
+		<td colspan="3"></td>
+	</tr>
+	
+{% endfor %}
+	<tr>
+		<td colspan="4" style="text-align: right; padding-right: 25px;"><b>I alt</b></td><td><b>{{ total|currency }}</b></td>
+	</tr>
+	<tr>
+		<td colspan="4" style="text-align: right; padding-right: 25px;">Heraf moms</td><td>{{ vat|currency }}</td>
+	</tr>
+</table>
+
+<form class="order" method="POST">
+	<div class="form">
+		<h1>Leveringsadresse</h1>
+		{% for field in form %}
+			<div class="field{% if field.errors %} error{% endif %}">
+				{{ field.label_tag }}<br /> {{ field }}
+				{% if field.errors %}<br /> {{ field.errors.0 }}{% endif %}
+			</div>
+		{% endfor %}
+		<input type="submit" value="Bestil" />
+		<div class="clear"></div>
+		{% if form.errors %}
+			Udfyld venligst de røde felter korrekt.
+		{% endif %}
+	</div>
+</form>
+<div class="terms">
+	<h1>Handelsbetingelser</h1>
+	{{ options.terms_of_sale|safe|linebreaks }}
+	{% filter linebreaks %}
+	{% option "terms_of_sale" %}
+	{% endfilter %}
+</div>
+{% endblock %}

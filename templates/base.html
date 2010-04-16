@@ -1,0 +1,66 @@
+{% load catalog_tools %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>{% option "shop_name" %}</title>
+	<link rel="stylesheet" href="/media/css/960.css" type="text/css" charset="utf-8" />
+	<link rel="stylesheet" href="/media/css/reset.css" type="text/css" charset="utf-8" />
+	<link rel="stylesheet" href="/media/css/text.css" type="text/css" charset="utf-8" />
+	<link rel="stylesheet" href="/media/style.css" type="text/css" charset="utf-8" />
+	{% block js %}{% endblock %}
+	{% block canonical %}{% endblock %}
+</head>
+<body id="page_detail" onload="">
+	{% block top %}{% endblock %}
+	<div class="page">
+		<div class="container_12" id="wrapper">
+			<h2 class="page_title"><a href="/"><img src="/media/logo.png" /></a></h2>
+			<div id="pagecontent">
+				<div id="left_menu" class="grid_3">
+					{% block menu %}
+					<ul>
+						{% block menulinks %}
+						{% for category in categories %}
+						<li><a href="{{ category.url }}">{{ category }}</a></li>
+						{% endfor %}
+						{% endblock %}
+					</ul>
+					<p>
+                        <b>{% option "shop_name" %}</b>
+                        {% option "shop_name_2" "" "<br />" %}                        
+                        {% filter linebreaksbr %}
+						    {% option "address" %}
+                        {% endfilter %}
+						{% option "extra_info" "<br />" %}
+						{% option "vat_no" "" "CVR: " %}<br />
+					</p>
+					<p>
+						<b>I kurven</b><br />
+						{% for itm in basket %}
+						{% if itm.item %}
+						{{ itm.amount }}x {{ itm.item }}<br />
+						{% endif %}
+						{% endfor %}
+						{% if basket %}
+						<a href="{% url checkout %}">Bestil</a>
+						{% else %}
+						Kurven er tom
+						{% endif %}
+					</p>
+					{% endblock %}
+					
+				</div>
+				<div id="content" class="grid_9">
+						{% block content %}
+						
+						{% endblock %}
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	{% block bottom %}{% endblock %}
+</body>
+</html>

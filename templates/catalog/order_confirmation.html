@@ -1,0 +1,14 @@
+{% load catalog_tools %}Hej {{ order.first_name }}!
+
+Tak fordi du handlede hos {% option "shop_name" %}
+
+Du har bestilt følgende:
+{% for line in order.orderline_set.all %}{{ line.amount }}x {{ line.name }}
+{% endfor %}
+I alt {{ order.total|currency }}
+
+Vi sender dig en ordrebekræftelse når en medarbejder har behandlet din ordre.
+
+Mvh
+{% option "shop_name" %}
+CVR: {% option "vat_no" %}

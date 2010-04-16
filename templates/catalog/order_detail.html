@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load catalog_tools %}
+{% block content %}
+<h1>Ordre {{ object }}</h1>
+<table style="width: 100%;">
+	<tr class="header">
+		<td>Produkt</td><td>Antal</td><td>Enhedspris</td><td>I alt</td>
+	</tr>
+{% for itm in object.orderline_set.all %}
+	{% if itm.item_id %}
+	<tr>
+		<td>{{ itm.name }}</td><td>{{ itm.amount }}</td><td>{{ itm.price|currency }}</td><td>{{ itm.total|currency }}</td>
+	</tr>
+	{% else %}
+	<tr class="fee">
+		<td>+ {{ itm.name }}</td><td>{{ itm.amount }}</td><td>{{ itm.price|currency }}</td><td>{{ itm.total|currency }}</td>
+	</tr>
+	{% endif %}
+{% endfor %}
+	<tr>
+		<td colspan="3" style="text-align: right; padding-right: 25px;"><b>I alt</b></td><td><b>{{ object.total|currency }}</b></td>
+	</tr>
+	<tr>
+		<td colspan="3" style="text-align: right; padding-right: 25px;">Heraf moms</td><td>{{ object.vat|currency }}</td>
+	</tr>
+	{% comment %}
+	<tr>
+		<td colspan="4">
+			<h1>Indbetalinger</h1>
+		</td>
+	</tr>
+	<tr class="header">
+		<td>Handling</td><td></td><td></td><td>I alt</td>
+	</tr>
+	<tr>
+		<td>Ordre {{ object }}</td><td></td><td></td><td>{{ object.total|currency }}</td>
+	</tr>
+{% for payment in object.orderpayment_set.all %}
+	<tr>
+		<td>Indbetaling</td><td></td><td></td><td>-{{ payment.amount|currency }}</td>
+	</tr>
+{% endfor %}
+	<tr>
+		<td colspan="3" style="text-align: right; padding-right: 25px;"><b>Saldo</b></td><td><b>{{ object.balance|currency }}</b></td>
+	</tr>
+{% endcomment %}
+
+</table>
+<div class="orderfooter">
+	{% filter linebreaks %}
+	{% option "order_thanks" %}
+	{% endfilter %}
+</div>
+{% endblock %}

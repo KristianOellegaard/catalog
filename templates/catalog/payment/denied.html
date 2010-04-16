@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load catalog_tools %}
+{% block menu %}
+<p>
+	<b>Betalingsmodtager:</b><br />
+	{% option "shop_name" %}<br />
+{% option "shop_name_2" "<br />" %}
+	CVR: {% option "vat_no" %}<br />
+</p>
+<p>
+	Alle de informationer du indtaster på denne side er krypterede og sikret.
+</p>
+<div style="text-align: center;">
+<img src="https://epay.dk/images/paymentcards/download/dankort_22.gif" />
+<img src="https://epay.dk/images/paymentcards/download/visa_22.gif" />
+<img src="https://epay.dk/images/paymentcards/download/electron_22.gif" />
+</div>
+{% endblock %}
+{% block content %}
+
+{% endblock %}

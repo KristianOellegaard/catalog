@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load catalog_tools %}
+{% block js %}
+{% endblock %}
+{% block menu %}
+<p>
+	<b>Afsender:</b><br />
+	{% option "shop_name" %}<br />
+	{% option "shop_name_2" "<br />" %}
+	CVR: {% option "vat_no" %}<br />
+</p>
+
+<p>
+	<b>Modtager:</b><br>
+	{{ order.get_full_name }}<br />
+	{{ order.address }}<br />
+	{% if order.address_2 %}
+	{{ order.address_2 }}<br />
+	{% endif %}
+	{{ order.postal_code }} {{ order.city }}<br />
+</p>
+
+{% endblock %}
+{% block content %}
+<h1 class="product_title">Plukliste</h1>
+<h2 class="subtitle">Ordre {{ order.id }}</h2>
+<table width="100%" class="packingslip">
+	<thead>
+		<tr>
+			<th class="amount">Antal</th><th class="delivered">Tidligere leveret</th><th class="item">Varenr.</th><th class="item">Vare</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for line in order.orderline_set.all %}
+		<tr>
+			<td class="amount">{{ line.amount }}</td><td class="delivered">{{ line.delivered }}</td><td>{{ line.item.item_number }}</td><td class="item">{{ line.name }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

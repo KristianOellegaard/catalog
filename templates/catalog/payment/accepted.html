@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load catalog_tools %}
+{% block menu %}
+<p>
+	<b>Betalingsmodtager:</b><br />
+	{% option "shop_name" %}<br />
+{% option "shop_name_2" "<br />" %}
+	CVR: {% option "vat_no" %}<br />
+</p>
+<p>
+	Alle de informationer du indtaster på denne side er krypterede og sikret.
+</p>
+<div style="text-align: center;">
+<img src="https://epay.dk/images/paymentcards/download/dankort_22.gif" />
+<img src="https://epay.dk/images/paymentcards/download/visa_22.gif" />
+<img src="https://epay.dk/images/paymentcards/download/electron_22.gif" />
+</div>
+{% endblock %}
+{% block content %}
+<h1>Betalingen er godkendt!</h1>
+<p>
+	Vi takker mange gange for din ordre, og vi glæder meget os til at levere den til dig.
+</p>
+<p>
+	Vi har lavet en <a href="{% url order_detail order.id %}">kvittering</a> til dig. Såfremt det er muligt
+	bør du udskrive den og forevise den ved levering, har du ikke en printer bør du have andet identifikation klar.
+	Husk at hvis du har spørgsmål, er du altid velkommen til at kontakte os!
+</p>
+{% endblock %}

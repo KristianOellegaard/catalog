@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load catalog_tools %}
+{% block js %}
+<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.cc > div').hide();
+	$('.form input').blur(function(){
+		$('.cc > div').hide();
+	});
+	$("#id_cardno").focus(function(){
+		$(".cc .number").show();
+	});
+	$("#id_cvc").focus(function(){
+		$(".cc .cvc").show();
+	});
+	$("#id_cardholder").focus(function(){
+		$(".cc .name").show();
+	});
+	$("#id_expmonth").focus(function(){
+		$(".cc .expire").show();
+	});
+	$("#id_expyear").focus(function(){
+		$(".cc .expire").show();
+	});
+	$("#id_cardno").focus();
+});
+</script>
+{% endblock %}
+{% block menu %}
+<p>
+	<b>Betalingsinformation:</b><br />
+	Ordre: {{ order }}<br />
+	Total: {{ order.total|currency }}<br />
+	Kunde: {{ order.first_name }} {{ order.last_name }}
+</p>
+<p>
+	<b>Betalingsmodtager:</b><br />
+	{% option "shop_name" %}<br />
+{% option "shop_name_2" "<br />" %}
+	CVR: {% option "vat_no" %}<br />
+</p>
+<p>
+	Alle de informationer du indtaster på denne side er krypterede og sikret.
+</p>
+<div style="text-align: center;">
+<img src="https://epay.dk/images/paymentcards/download/dankort_22.gif" />
+<img src="https://epay.dk/images/paymentcards/download/visa_22.gif" />
+<img src="https://epay.dk/images/paymentcards/download/electron_22.gif" />
+</div>
+{% endblock %}
+{% block content %}
+<form action="https://ssl.ditonlinebetalingssystem.dk/auth/default.aspx" method="post" class="order">
+	<div class="form">
+		<h1>Indtast kortinformation</h1>
+		{% for field in form.visible_fields %}
+			<div class="field{% if field.errors %} error{% endif %}">
+				{{ field.label_tag }}<br /> {{ field }}
+				{% if field.errors %}<br /> {{ field.errors.0 }}{% endif %}
+			</div>
+		{% endfor %}
+		{% for field in form.hidden_fields %}
+			{{ field }}
+		{% endfor %}
+		<div class="clear"></div>
+		<input type="submit" value="Bestil!" />
+		<div class="clear"></div>
+		{% if form.errors %}
+			Udfyld venligst de røde felter korrekt.
+		{% endif %}
+	</div>
+</form>
+<div class="terms card">
+	<h1>Her finder du tallene på dit kort</h1>
+	<div class="cc" style="background-image: url('../../media/images/credit_card.jpg'); height: 348px;width: 256px">
+		<div class="cvc" style="background-image: url('../../media/images/credit_cvc.png'); height: 348px;width: 256px"></div>
+		<div class="number" style="background-image: url('../../media/images/credit_number.png'); height: 348px;width: 256px"></div>
+		<div class="expire" style="background-image: url('../../media/images/credit_expire.png'); height: 348px;width: 256px"></div>
+		<div class="name" style="background-image: url('../../media/images/credit_name.png'); height: 348px;width: 256px;"></div>
+	</div>
+</div>
+{% endblock %}

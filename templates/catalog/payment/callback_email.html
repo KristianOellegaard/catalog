@@ -1,0 +1,11 @@
+{% load catalog_tools %}Hej {{ order.first_name }}!
+
+Vi skriver for at sige at betalingen er godkendt.
+For en god ordens skyld får du også lige et link til din kvittering, såfremt du måtte have brug for den.
+
+http://{{ site.domain }}{% url order_detail order.slug %}
+
+Mvh
+{% option "shop_name" %}<br />
+{% option "shop_name_2" "<br />" %}
+CVR: {% option "vat_no" %}<br />

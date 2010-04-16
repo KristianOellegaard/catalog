@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load catalog_tools %}
+{% block canonical %}<link rel="canonical" href="{{ object.url }}"/>{% endblock %}
+{% block content %}
+<div class="right">
+	<div class="product icon">
+		<img src="{% thumbnail object.icon 100x100 upscale %}" alt="{{ object.name }}" style="max-width: 710px;"><br />
+	</div>
+	{% if object.mainitem.subitem_set.all %}
+
+	{% else %}
+	<div class="button cart" style="">
+		<a href="?basket_add">
+		<img src="/media/images/cart_bg.png" alt="{{ object.name }}" /><br />
+		Put i kurven</a>
+	</div>
+	{% endif %}
+</div>
+	<h1 class="product_title">{{ object }}</h1>
+	<h2 class="subtitle">{{ object.category }}</h2>
+	<p>{{ object.description }}</p>
+	
+	{% regroup object.mainitem.subitem_set.all by variant_type as subitems %}
+	{% if subitems %}
+		{% for subitem_group in subitems %}
+		<h1>Vælg {{ subitem_group.grouper|lower }}:</h1>
+		<ul>
+			{% for subitem in subitem_group.list %}
+				<li><a href="{{ subitem.url }}">{{ subitem.variant_title }}</a></li>
+			{% endfor %}
+		</ul>
+		{% endfor %}
+		
+	{% else %}
+		<h1 class="product_title">{{ object.price|currency }}</h1>
+		{% if object.extra_fees.all %}
+		<h2 class="subtitle">+ pant</h2>
+		{% endif %}
+		{% if object.on_stock %}
+		<h2 class="subtitle">Varen er på lager</h2>
+		{% endif %}
+	{% endif %}
+{% endblock %}

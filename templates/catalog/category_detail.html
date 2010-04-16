@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load catalog_tools %}
+{% load thumbnail %}
+{% block content %}
+<h1>{{ object }}</h1>
+{% for item in object.site_item_set %}
+<div class="button">
+	<a href="{{ item.url }}">
+	{% if item.icon %}
+	<div class="icon">
+	<img src="{% thumbnail item.icon 100x100 upscale %}" alt="{{ item.name }}" /><br />
+	</div>
+	{% endif %}
+	{{ item.price|currency }}<br />
+	{{ item }}</a>
+</div>
+{% endfor %}
+{% endblock %}

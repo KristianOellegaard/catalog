@@ -1,0 +1,321 @@
+# Translation to Danish
+# Copyright (C) 2009 prinkk SMBA (DENMARK)
+# This file is distributed under the same license as the PACKAGE package.
+# Kristian Oellegaard <kristian@prinkk.net>, 2009
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-06 20:57+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:6
+msgid "Remember information"
+msgstr "Husk information"
+
+#: forms.py:14
+msgid "Your forgot to accept our terms"
+msgstr "Du har glemt at acceptere vores handelsbetingelser"
+
+#: models.py:24
+msgid "order fee"
+msgstr "ordregebyr"
+
+#: models.py:24
+msgid "order fees"
+msgstr "ordregebyrer"
+
+#: models.py:34
+msgid "fee"
+msgstr "gebyr"
+
+#: models.py:34
+msgid "fees"
+msgstr "gebyrer"
+
+#: models.py:51 models.py:77
+msgid "category"
+msgstr "kategori"
+
+#: models.py:51
+msgid "categories"
+msgstr "kategorier"
+
+#: models.py:69 models.py:118 models.py:206
+msgid "name"
+msgstr "navn"
+
+#: models.py:70
+msgid "slug"
+msgstr "slug"
+
+#: models.py:73
+msgid "item number"
+msgstr "varenummer"
+
+#: models.py:75 models.py:208
+msgid "price"
+msgstr "pris"
+
+#: models.py:76
+msgid "description"
+msgstr "beskrivelse"
+
+#: models.py:79
+msgid "amount sold"
+msgstr "antal solgt"
+
+#: models.py:81
+msgid "amount on stock"
+msgstr "antal på lager"
+
+#: models.py:83
+msgid "related items"
+msgstr "relaterede varer"
+
+#: models.py:85
+msgid "extra fees"
+msgstr "ekstra gebyrer"
+
+#: models.py:87
+msgid "icon"
+msgstr "ikon"
+
+#: models.py:88
+msgid "image"
+msgstr "billede"
+
+#: models.py:89
+msgid "sites"
+msgstr "websider"
+
+#: models.py:100 models.py:115
+msgid "item"
+msgstr "vare"
+
+#: models.py:100 models.py:115
+msgid "items"
+msgstr "varer"
+
+#: models.py:121
+msgid "sub item type"
+msgstr "undervaretype"
+
+#: models.py:121
+msgid "sub item types"
+msgstr "undervaretyper"
+
+#: models.py:128
+msgid "variant title"
+msgstr "varianttitel"
+
+#: models.py:132
+msgid "sub item"
+msgstr "undervare"
+
+#: models.py:132
+msgid "sub items"
+msgstr "undervarer"
+
+#: models.py:136
+msgid "first name"
+msgstr "fornavn"
+
+#: models.py:137
+msgid "last name"
+msgstr "efternavn"
+
+#: models.py:138 settings.py:8
+msgid "address"
+msgstr "adresse"
+
+#: models.py:139
+msgid "address 2"
+msgstr "adresse 2"
+
+#: models.py:140
+msgid "postal code"
+msgstr "postnr"
+
+#: models.py:141
+msgid "city"
+msgstr "by"
+
+#: models.py:142
+msgid "cellphone"
+msgstr "mobilnr."
+
+#: models.py:143
+msgid "email"
+msgstr "email"
+
+#: models.py:144
+msgid "IP"
+msgstr "IP"
+
+#: models.py:146
+msgid "paid"
+msgstr "betalt"
+
+#: models.py:147
+msgid "delivered"
+msgstr "leveret"
+
+#: models.py:148
+msgid "terms accepted"
+msgstr "betingelser accepteret"
+
+#: models.py:149
+msgid "newsletter"
+msgstr "nyhedsbrev"
+
+#: models.py:151
+msgid "site"
+msgstr "webside"
+
+#: models.py:169
+msgid "Paid"
+msgstr "Betalt"
+
+#: models.py:171
+msgid "Not paid"
+msgstr "Ikke betalt"
+
+#: models.py:173
+#, python-format
+msgid ""
+"Payment attempt, but not fully paid\n"
+"Paid: %(total)s\n"
+"%(errors)s"
+msgstr ""
+"Forsøgt betaling, men ikke fuldt betalt\n"
+"Betalt: %(total)s\n"
+"%(errors)s"
+
+#: models.py:176 models.py:217 models.py:225 models.py:231
+msgid "order"
+msgstr "ordre"
+
+#: models.py:176
+msgid "orders"
+msgstr "ordrer"
+
+#: models.py:204
+msgid "item id"
+msgstr "varenummer"
+
+#: models.py:205
+msgid "fee id"
+msgstr "gebyrsnummer"
+
+#: models.py:207
+msgid "pieces"
+msgstr "antal"
+
+#: models.py:214
+msgid "order line"
+msgstr "ordrelinje"
+
+#: models.py:214
+msgid "order lines"
+msgstr "ordrelinjer"
+
+#: models.py:218 models.py:226 models.py:232
+msgid "gateway"
+msgstr "gateway"
+
+#: models.py:219
+msgid "transaction id"
+msgstr "transaktions-id"
+
+#: models.py:220 models.py:236
+msgid "date"
+msgstr "dato"
+
+#: models.py:221
+msgid "amount"
+msgstr "pris"
+
+#: models.py:222
+msgid "full name"
+msgstr "fuldt navn"
+
+#: models.py:227
+msgid "error code"
+msgstr "fejlkode"
+
+#: models.py:228
+msgid "error text"
+msgstr "fejltekst"
+
+#: models.py:233
+msgid "message"
+msgstr "besked"
+
+#: models.py:234
+msgid "is send?"
+msgstr "sendt?"
+
+#: models.py:235
+msgid "received error?"
+msgstr "modtaget fejl?"
+
+#: models.py:239
+msgid "order message"
+msgstr "ordrebesked"
+
+#: models.py:239
+msgid "order messages"
+msgstr "ordrebeskeder"
+
+#: settings.py:5
+msgid "shop name"
+msgstr "shop navn"
+
+#: settings.py:6
+msgid "shop name 2"
+msgstr "shop navn 2"
+
+#: settings.py:9
+msgid "extra information"
+msgstr "ekstra information"
+
+#: settings.py:10
+msgid "vat number"
+msgstr "cvr nummer"
+
+#: settings.py:14
+msgid "terms of sale"
+msgstr "handelsbetingelser"
+
+#: settings.py:16
+msgid "enable payment"
+msgstr "tillad online betaling"
+
+#: settings.py:18
+msgid "merchant id"
+msgstr ""
+
+#: settings.py:20
+msgid "Thank you text"
+msgstr "Tak for ordren-tekst"
+
+#: gateways/email.py:9
+#, python-format
+msgid "Your order - F%0.3d"
+msgstr "Din ordre - F%0.3d"
+
+#: templates/admin/catalog/inline.html:17
+msgid "Delete?"
+msgstr "Slet?"
+
+#: templatetags/catalog_tools.py:15
+msgid "free"
+msgstr "gratis"
