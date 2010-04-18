@@ -9,8 +9,6 @@ class Shop(dbsettings.Group):
 	extra_info = dbsettings.StringValue(_("extra information"))
 	vat_no = dbsettings.StringValue(_("vat number"), required=False)
 	
-	#value = dbsettings.StringValue(_("value"))
-
 	terms_of_sale = dbsettings.TextValue(_("terms of sale"))
 
 	payment = dbsettings.BooleanValue(_("enable payment"))
