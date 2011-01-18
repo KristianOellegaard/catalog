@@ -1,0 +1,8 @@
+Depends on sorl-thumbnail and dbsettings (i forked dbsettings to make it work with the newest django version here: https://github.com/KristianOellegaard/django-dbsettings)
+
+Furthermore you need to add these to context processors:
+
+"catalog.context_processors.basket",
+"catalog.context_processors.categories",
+
+Media files are not included at this time, but it should be easy to adjust the templates to make them work with just about anything. The webshop is 100% english but translated to Danish with the built in tools from django.
