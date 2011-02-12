@@ -6,7 +6,7 @@ class Shop(dbsettings.Group):
 	shop_name_2 = dbsettings.StringValue(_("shop name 2"), required=False)
 
 	address = dbsettings.TextValue(_("address"))
-	extra_info = dbsettings.StringValue(_("extra information"))
+	extra_info = dbsettings.StringValue(_("extra information"), required=False)
 	vat_no = dbsettings.StringValue(_("vat number"), required=False)
 	
 	terms_of_sale = dbsettings.TextValue(_("terms of sale"))
