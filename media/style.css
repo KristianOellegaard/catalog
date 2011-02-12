@@ -1,0 +1,185 @@
+html, body, .page
+{
+	height: 100% !important;
+	margin-bottom: auto;
+}
+body
+{
+	background-color: #000;
+	font-size: 11px;
+	background-image: url('images/bg.jpg');
+	background-repeat: repeat-y;
+	background-position: center top;
+}
+
+.page
+{
+	margin: auto;
+	background-image: url('images/top.jpg');
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+
+.page_title
+{
+	padding-top: 82px;
+	padding-left: 40px;
+	font-family: Arial, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.page_title a
+{
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	color: #000;
+}
+
+#left_menu p
+{
+    padding-left: 30px;
+}
+
+#left_menu ul
+{
+	list-style-type: none;
+}
+
+#left_menu li a
+{
+	font: normal 11px Arial;
+	color: #888;
+	text-decoration: none;
+}
+#left_menu li.sel a
+{
+	color: #000;
+}
+
+#left_menu a:hover
+{
+	color: #000;
+}
+
+h1
+{
+	font: bold 18px Helvetica, Arial, sans-serif;
+}
+
+
+.variant
+{
+    height: 25px;
+    width: 25px;
+}
+
+.right
+{
+    float: right;
+}
+
+.left
+{
+    float: left;
+    max-width: 500px;
+}
+
+.pris
+{
+    font-size: 22px;
+    font-family: Helvetica;
+    text-align: center;
+}
+
+h1.product_title
+{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+h2
+{
+    font: bold 14px Helvetica, Arial, sans-serif;
+    color: #aaa;
+}
+
+.fee td
+{
+    color: #777;
+}
+
+.header td
+{
+    font-weight: bold;
+}
+
+div.form
+{
+	width: 300px;
+	float: left;
+}
+
+div.terms
+{
+	float: right;
+	width: 300px;
+}
+
+form.order div.field
+{
+	float: left;
+	width: 137px;
+	padding: 3px;
+	border: 1px solid #fff;
+	margin-bottom: 3px;
+	margin-right: 3px;
+}
+
+form.order input
+{
+	width: 120px;
+	margin: 3px;
+	margin-bottom: 0px;
+}
+
+form.order div.field.error
+{
+	background-color: #f88490;
+	color: #fff;
+	border: 1px solid #f00;
+}
+
+div.button
+{
+	float: left;
+}
+
+.button a
+{
+	margin: 10px;
+	padding: 5px;
+	text-align: center;
+	display: block;
+	color: #555;
+	text-decoration: none;
+	width: 100px;
+	height: 100px;
+}
+
+.button.cart
+{
+	background-position: 60px 20px;
+}
+
+.button a:hover
+{
+	color: #000;
+}
+
+.button img
+{
+	border: 0px solid #eee;
+}
